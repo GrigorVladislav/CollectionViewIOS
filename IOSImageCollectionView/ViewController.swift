@@ -11,38 +11,51 @@ import UIKit
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
     
+    
     @IBOutlet weak var collectionView : UICollectionView!
     var colectionArr : [String] = ["1","2","3","4"]
-    let titles = [("Jiji"),("Iselda"),("Eater"),("Fool"),("Millibelle"),("Nailsmith"),("Lemm"),("Salubra"),("Sly"),("Jinn"),("Stag"),("Tuk"),("Mato"),("Oro"),("Sheo"),("Cloth"),("Cornifer"),("Hornet"),("Mushroom"),("Quirrel"),("Tiso"),("Zote")]
     
     
-    let des = [
-                   (""),
-                    (""),
-                     (""),
-                      (""),
-                       (""),
-                        (""),
-                         (""),
-                          (""),
-                           (""),
-                            (""),
-                             (""),
-                              (""),
-                               (""),
-                                (""),
-                                 (""),
-                                  (""),
-                                   (""),
-                                    (""),
-                                     (""),
-                                      (""),
-                                       (""),
+   
+    let titlesMerchants = [("Jiji"),("Iselda"),("Eater"),("Fool"),("Millibelle"),("Nailsmith"),("Lemm"),("Salubra"),("Sly"),("Jinn"),("Stag"),("Tuk")]
+                  let titlesNailmasters = [("Mato"),("Oro"),("Sheo")]
+                  
+                        let titlesWanderers = [("Cloth"),("Cornifer"),("Hornet"),("Mushroom"),("Quirrel"),("Tiso"),("Zote")]
+    
+    
+    let desMerchants = [
+                   ("Residents of Dirtmouth have long pondered on a mysterious stone door at the base of the peak beyond their graveyard."),
+                    ("She will appear in her store in Dirtmouth after the purchase of a map from Cornifer or the defeat of False Knight."),
+                     ("A hermit Vendor found in Fungal Wastes near the entrance to the Forgotten Crossroads."),
+                      ("Found chained up, hanging upside down in the Colosseum of Fools."),
+                       ("Geo deposited in this bank is retained upon death and can be withdrawn at any time."),
+                        ("When The Knight enters his smithy, the Nailsmith at first mistakes them for somebody else."),
+                         ("Relic Seeker Lemm makes his home in a tall tower of the City of Tears, before the fountain, right from a lift shortcut."),
+                          ("Salubra is a slug Merchant found in the South-East part of the Forgotten Crossroads. "),
+                           ("Initially found in a hovel in the small village accessible after defeating Gruz Mother in the Forgotten Crossroads, slowly succumbing to The Infection."),
+                            ("Steel Soul Jinn is an NPC exclusive to Steel Soul Mode, replacing Confessor Jiji in the cave at the east end of Dirtmouth"),
+                             ("The Last Stag is a large stag beetle that transports The Knight among various Stag Stations in Hallownest."),
+                              ("Found scavenging in the Royal Waterways, behind a breakable wall in the upper-right corner of the area.")]
+                              
+                              
+                          let desNailmasters = [("Nailmaster Mato is one of three Nailmasters that teach Nail Arts."),
+                                ("Nailmaster Oro is one of three Nailmasters that teach Nail Arts."),
+                                 ("Nailmaster Sheo is one of three Nailmasters that teach Nail Arts.")]
+                                 
+                                    let desWanderers = [("A cicada who set out to Hallownest in order to become a true warrior, and sees The Knight as an inspiration."),
+                                    ("When Cornifer was first hatched, he wandered off right away, leaving his siblings and his mother behind."),
+                                        ("Mysterious protector of Hallownest’s ruins. She wields a needle and thread with deadly prowess."),
+                                            ("Mister Mushroom is a talking mushroom found through various locations in Hallownest"),
+                                                ("Quirrel is an observer, not a warrior, but he knows the Kingdom's dangers and has some skills with a Nail."),
+                                                    ("Tiso is an adventurer who seeks the Colosseum of Fools for the sake of a challenge. "),
+                                                    ("He came to the Kingdom to fulfill a promise; this is ultimately revealed to be a promise of glory for himself.")]
                                        
                 
-               ]
     
-    let images = [#imageLiteral(resourceName: "Jiji_Circle"),#imageLiteral(resourceName: "Iselda_Circle"),#imageLiteral(resourceName: "Legeater_Circle"),#imageLiteral(resourceName: "Little_Fool_Circle"),#imageLiteral(resourceName: "Millibelle_Circle"),#imageLiteral(resourceName: "Nailsmith_Circle-1"),#imageLiteral(resourceName: "Lemm_Circle"),#imageLiteral(resourceName: "Salubra_Circle"),#imageLiteral(resourceName: "Sly_Circle-1"),#imageLiteral(resourceName: "Jinn_Circle"),#imageLiteral(resourceName: "Stag_Circle"),#imageLiteral(resourceName: "Tuk_Circle"),#imageLiteral(resourceName: "Mato_Circle"),#imageLiteral(resourceName: "Oro_Circle"),#imageLiteral(resourceName: "Sheo_Circle"),#imageLiteral(resourceName: "Cloth_Circle-2"),#imageLiteral(resourceName: "Cornifer_Circle"),#imageLiteral(resourceName: "Hornet_Icon"),#imageLiteral(resourceName: "Mister_Mushroom_Circle"),#imageLiteral(resourceName: "Quirrel_Circle-3"),#imageLiteral(resourceName: "Tiso_Circle"),#imageLiteral(resourceName: "Zote_Circle")]
+    
+    let imagesMerchants = [#imageLiteral(resourceName: "Jiji_Circle"),#imageLiteral(resourceName: "Iselda_Circle"),#imageLiteral(resourceName: "Legeater_Circle"),#imageLiteral(resourceName: "Little_Fool_Circle"),#imageLiteral(resourceName: "Millibelle_Circle"),#imageLiteral(resourceName: "Nailsmith_Circle-1"),#imageLiteral(resourceName: "Lemm_Circle"),#imageLiteral(resourceName: "Salubra_Circle"),#imageLiteral(resourceName: "Sly_Circle-1"),#imageLiteral(resourceName: "Jinn_Circle"),#imageLiteral(resourceName: "Stag_Circle"),#imageLiteral(resourceName: "Tuk_Circle")]
+            let imagesNailmasters = [#imageLiteral(resourceName: "Mato_Circle"),#imageLiteral(resourceName: "Oro_Circle"),#imageLiteral(resourceName: "Sheo_Circle")]
+                 let imagesWanderers = [#imageLiteral(resourceName: "Cloth_Circle-2"),#imageLiteral(resourceName: "Cornifer_Circle"),#imageLiteral(resourceName: "Hornet_Icon"),#imageLiteral(resourceName: "Mister_Mushroom_Circle"),#imageLiteral(resourceName: "Quirrel_Circle-3"),#imageLiteral(resourceName: "Tiso_Circle"),#imageLiteral(resourceName: "Zote_Circle")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +69,16 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return titles.count
-    }
+        
+        return titlesNailmasters.count
+            
+        }
+       
+        
     
     
     
@@ -73,9 +89,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         cell.delBtnView.isHidden = true
         cell.edutBtnView.isHidden = true
         
-        cell.imageView.image = images[cellIndex]
-        cell.titleView.text = titles[cellIndex]
-        cell.detailsView.text = des[cellIndex]
+//        cell.imageView.image = imagesMerchants[cellIndex]
+//        cell.titleView.text = titlesMerchants[cellIndex]
+//        cell.detailsView.text = desMerchants[cellIndex]
+        
+        cell.imageView.image = imagesNailmasters[cellIndex]
+        cell.titleView.text = titlesNailmasters[cellIndex]
+        cell.detailsView.text = desNailmasters[cellIndex]
+//
+//        cell.imageView.image = imagesWanderers[cellIndex]
+//        cell.titleView.text = titlesWanderers[cellIndex]
+//        cell.detailsView.text = desWanderers[cellIndex]
         
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1.0
@@ -95,6 +119,6 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     }
     
-    
+
 
 
