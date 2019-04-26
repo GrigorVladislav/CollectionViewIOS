@@ -10,12 +10,9 @@ import UIKit
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    
+ 
     
     @IBOutlet weak var collectionView : UICollectionView!
-    var colectionArr : [String] = ["1","2","3","4"]
-    
-    
    
     let titlesMerchants = [("Jiji"),("Iselda"),("Eater"),("Fool"),("Millibelle"),("Nailsmith"),("Lemm"),("Salubra"),("Sly"),("Jinn"),("Stag"),("Tuk")]
                   let titlesNailmasters = [("Mato"),("Oro"),("Sheo")]
@@ -56,6 +53,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     let imagesMerchants = [#imageLiteral(resourceName: "Jiji_Circle"),#imageLiteral(resourceName: "Iselda_Circle"),#imageLiteral(resourceName: "Legeater_Circle"),#imageLiteral(resourceName: "Little_Fool_Circle"),#imageLiteral(resourceName: "Millibelle_Circle"),#imageLiteral(resourceName: "Nailsmith_Circle-1"),#imageLiteral(resourceName: "Lemm_Circle"),#imageLiteral(resourceName: "Salubra_Circle"),#imageLiteral(resourceName: "Sly_Circle-1"),#imageLiteral(resourceName: "Jinn_Circle"),#imageLiteral(resourceName: "Stag_Circle"),#imageLiteral(resourceName: "Tuk_Circle")]
             let imagesNailmasters = [#imageLiteral(resourceName: "Mato_Circle"),#imageLiteral(resourceName: "Oro_Circle"),#imageLiteral(resourceName: "Sheo_Circle")]
                  let imagesWanderers = [#imageLiteral(resourceName: "Cloth_Circle-2"),#imageLiteral(resourceName: "Cornifer_Circle"),#imageLiteral(resourceName: "Hornet_Icon"),#imageLiteral(resourceName: "Mister_Mushroom_Circle"),#imageLiteral(resourceName: "Quirrel_Circle-3"),#imageLiteral(resourceName: "Tiso_Circle"),#imageLiteral(resourceName: "Zote_Circle")]
+    let headerTitles = ["Merchants", "Nailmasters", "Wanderers"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,32 +72,36 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return titlesNailmasters.count
-            
+        if (section == 0){
+            return titlesMerchants.count
+        }else if (section == 1){
+            return  titlesNailmasters.count
         }
-       
-        
-    
-    
-    
+            return titlesWanderers.count
+        }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         let cellIndex = indexPath.item
+        let sectionIndex = indexPath.section
         cell.delBtnView.isHidden = true
         cell.edutBtnView.isHidden = true
-        
-//        cell.imageView.image = imagesMerchants[cellIndex]
-//        cell.titleView.text = titlesMerchants[cellIndex]
-//        cell.detailsView.text = desMerchants[cellIndex]
-        
-        cell.imageView.image = imagesNailmasters[cellIndex]
-        cell.titleView.text = titlesNailmasters[cellIndex]
-        cell.detailsView.text = desNailmasters[cellIndex]
-//
-//        cell.imageView.image = imagesWanderers[cellIndex]
-//        cell.titleView.text = titlesWanderers[cellIndex]
-//        cell.detailsView.text = desWanderers[cellIndex]
+        if(sectionIndex == 0){
+            //cell.header.text = headerTitles[sectionIndex]
+            cell.imageView.image = imagesMerchants[cellIndex]
+            cell.titleView.text = titlesMerchants[cellIndex]
+            cell.detailsView.text = desMerchants[cellIndex]
+        }else if(sectionIndex == 1){
+            cell.imageView.image = imagesNailmasters[cellIndex]
+            cell.titleView.text = titlesNailmasters[cellIndex]
+            cell.detailsView.text = desNailmasters[cellIndex]
+        }else if(sectionIndex == 2){
+            cell.imageView.image = imagesWanderers[cellIndex]
+            cell.titleView.text = titlesWanderers[cellIndex]
+            cell.detailsView.text = desWanderers[cellIndex]
+        }else{
+            return cell
+        }
         
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1.0
@@ -115,9 +117,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         return cell
     }
-   
-    
-    }
+}
     
 
 

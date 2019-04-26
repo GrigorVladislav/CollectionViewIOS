@@ -15,7 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailsView: UILabel!
     @IBOutlet weak var delBtnView: UIButton!
     @IBOutlet weak var edutBtnView: UIButton!
-    @IBOutlet weak var headerView: UILabel!
+    @IBOutlet weak var header: UILabel!
     
     @IBAction func delAction(_ sender: Any) {
     }

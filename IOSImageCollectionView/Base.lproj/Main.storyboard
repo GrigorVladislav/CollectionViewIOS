@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,11 +104,11 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="m41-ch-6Z7">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nPS-qm-buj" customClass="CollectionViewCell" customModule="IOSImageCollectionView" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfR-A9-bcT">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-TF-9aX">
                                             <rect key="frame" x="166" y="15" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -116,11 +116,14 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ZfR-A9-bcT" secondAttribute="bottom" constant="6" id="CeX-WV-4ya"/>
-                                        <constraint firstItem="ZfR-A9-bcT" firstAttribute="leading" secondItem="m41-ch-6Z7" secondAttribute="leadingMargin" constant="158" id="dnm-YB-NQU"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ZfR-A9-bcT" secondAttribute="trailing" constant="159" id="lHk-YH-OcC"/>
-                                        <constraint firstItem="ZfR-A9-bcT" firstAttribute="top" secondItem="m41-ch-6Z7" secondAttribute="topMargin" constant="7" id="mCZ-IJ-JHS"/>
+                                        <constraint firstItem="IRi-TF-9aX" firstAttribute="leading" secondItem="nPS-qm-buj" secondAttribute="leadingMargin" constant="158" id="04l-MN-msA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IRi-TF-9aX" secondAttribute="bottom" constant="6" id="CcA-SS-LIV"/>
+                                        <constraint firstItem="IRi-TF-9aX" firstAttribute="top" secondItem="nPS-qm-buj" secondAttribute="topMargin" constant="7" id="M4t-Sd-HwI"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IRi-TF-9aX" secondAttribute="trailing" id="ofT-nA-She"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="header" destination="IRi-TF-9aX" id="47R-sf-XlC"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="EYf-mX-auj"/>
